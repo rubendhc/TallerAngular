@@ -1,0 +1,48 @@
+	<table class="tb">
+		<th>Id</th>
+		<th>Modelo</th>
+		<th>Top Speed</th>
+
+<tr *ngFor="let carro of coches"
+	[class.selected]="carro === carroSelected"
+	(click)="darClick(carro)"
+	
+>
+	
+
+	<td>{{carro.id}}</td>
+	<td>{{carro.name}}</td>
+	<td>{{carro.max_speed}}</td>
+
+</tr>
+	</table>
+
+
+
+<table *ngIf="carroSelected">
+
+	<th>Id</th>
+	<th>Modelo</th>
+	<th>Top Speed</th>
+
+	<tr>
+		<td>{{carroSelected.id}}</td>
+		<td>{{carroSelected.name | uppercase}}</td>
+		<td>{{carroSelected.max_speed }}</td>
+		
+	</tr>
+
+
+	<tr>
+		<td></td>
+		<td><input [(ngModel)]="carroSelected.name" placeholder="name" type="text">  </td>
+		<td><input [(ngModel)]="carroSelected.max_speed" placeholder="name" type="text"></td>
+	</tr>
+
+
+
+
+</table>
+
+
+
